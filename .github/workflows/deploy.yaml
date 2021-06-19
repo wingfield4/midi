@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy (develop)
 on:
   push:
     branches:
@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
       - uses: google-github-actions/deploy-appengine@main
         with:
           promote: false
