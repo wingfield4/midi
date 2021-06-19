@@ -42,7 +42,7 @@ const setNotes = (state, action) => {
 }
 
 const setInstrument = (state, action) => {
-  if(!state) return 'grandPiano';
+  if(!state) return 'celticHarp';
 
   switch (action.type) {
     case 'setInstrument':

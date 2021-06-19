@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import './App.css';
 
 import InputManager from './components/managers/InputManager';
+import InstrumentManager from './components/managers/InstrumentManager';
 import MidiManager from './components/managers/MidiManager';
 
 import AppBar from './components/common/AppBar';
@@ -17,6 +18,7 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <InputManager />
+        <InstrumentManager />
         <MidiManager />
         <PageContainer>
           <Pages />

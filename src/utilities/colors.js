@@ -54,7 +54,7 @@ const colors = {
     accent6: '#AF7595',
     accent6Text: '#26333e',
 
-    pianoWhite: '#26333e',
+    pianoWhite: '#354756',
     pianoBlack: '#171f26'
   }
 }

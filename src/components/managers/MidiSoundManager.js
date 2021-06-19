@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import InitializeInstrumentDialog from '../common/InitializeInstrumentDialog';
-
 import instrumentLibrary from '../../utilities/instrumentLibrary';
 
 const MidiSoundManager = (props) => {
@@ -13,7 +11,7 @@ const MidiSoundManager = (props) => {
     const onNoteStart = (note) => {
       setActiveNotes(prevState => [ ...prevState, note]);
       setSustainedNotes(prevState => [ ...prevState, note]);
-      instrumentLibrary[props.instrument].isInitialized && instrumentLibrary[props.instrument].playSound(note);
+      instrumentLibrary.isInitialized && instrumentLibrary.playSound(note);
     }
   
     const onNoteEnd = (note) => {
@@ -21,7 +19,7 @@ const MidiSoundManager = (props) => {
 
       if(!props.sustain) {
         setSustainedNotes(prevState => prevState.filter(prevSound => prevSound.midiNote !== note.midiNote));
-        instrumentLibrary[props.instrument].isInitialized && instrumentLibrary[props.instrument].stopSound(note);
+        instrumentLibrary.isInitialized && instrumentLibrary.stopSound(note);
       }
     }
 
@@ -44,16 +42,15 @@ const MidiSoundManager = (props) => {
       if(!exists)
         onNoteEnd(sustainedNote);
     })
-  }, [props.notes, props.instrument, props.sustain]);
+  }, [props.notes, props.sustain]);
 
   //loading dialog or something
   return (
-    <InitializeInstrumentDialog />
+    <></>
   )
 }
 
 export default connect(state => ({
-  instrument: state.instrument,
   notes: state.notes,
   sustain: state.sustain
 }))(MidiSoundManager);

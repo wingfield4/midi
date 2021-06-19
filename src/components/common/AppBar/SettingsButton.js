@@ -40,6 +40,24 @@ const SettingsButton = (props) => {
               />
               Use Dark Mode
             </Text>
+            <br />
+            <Text component="label" htmlFor="instrument-select">
+              Choose Instrument:
+              <select
+                value={props.instrument}
+                onChange={(e) => {
+                  props.dispatch({
+                    type: 'setInstrument',
+                    instrument: e.target.value
+                  })
+                }}
+                id="instrument-select"
+                style={{ marginLeft: 8 }}
+              >
+                <option value="grandPiano">Grand Piano</option>
+                <option value="celticHarp">Celtic Harp</option>
+              </select>
+            </Text>
           </>
         }
         onConfirm={() => setOpen(false)}
@@ -50,5 +68,6 @@ const SettingsButton = (props) => {
 
 export default connect(state => ({
   colorMode: state.colorMode,
-  colors: state.colors
+  colors: state.colors,
+  instrument: state.instrument
 }))(SettingsButton);
