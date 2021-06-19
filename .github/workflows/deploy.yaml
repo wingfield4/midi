@@ -1,0 +1,15 @@
+name: Deploy and Promote
+on:
+  push:
+    branches:
+      - develop
+jobs:
+  build:
+    name: GAE Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: google-github-actions/deploy-appengine@main
+        with:
+          promote: false
+          credentials: ${{ secrets.gcp_credentials }}
