@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Text from '../common/Text';
+import Text from '../common/mui/Text';
 
-import chordify from '../../utilities/chordify';
 import { notes } from '../../utilities/notes';
 
 const ChordTitle = (props) => {
-  const [chord, setChord] = useState(null);
-
-  useEffect(() => {
-    setChord(chordify(props.notes));
-  }, [props.notes])
-
   return (
     <Container>
       <InnerContainer colors={props.colors}>
-        {chord && 
+        {props.chord && 
           <Text fontSize={36} color={props.colors.accent3}>
-            {notes[chord.root]} {chord.type.name}
+            {notes[props.chord.root]} {props.chord.type.name}
           </Text>
         }
       </InnerContainer>
@@ -28,6 +21,7 @@ const ChordTitle = (props) => {
 }
 
 export default connect(state => ({
+  chord: state.chord,
   colors: state.colors,
   notes: state.notes
 }))(ChordTitle);
@@ -55,4 +49,3 @@ const InnerContainer = styled(({ colors, ...props }) => (
   padding: 8px;
   border: 2px solid ${props => props.colors.captionText};
 `;
-// box-shadow: 0px 0px 128px -16px ${props => props.colors.captionText};

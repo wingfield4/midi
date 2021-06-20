@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 
 import { Cog } from 'mdi-material-ui';
 
-import Dialog from '../Dialog';
-import IconButton from '../IconButton';
-import Text from '../Text';
+import MenuItem from '@material-ui/core/MenuItem';
+
+import Checkbox from '../mui/Checkbox';
+import Dialog from '../mui/Dialog';
+import IconButton from '../mui/IconButton';
+import Select from '../mui/Select';
 
 const SettingsButton = (props) => {
   const [open, setOpen] = useState(false);
@@ -24,40 +27,35 @@ const SettingsButton = (props) => {
         title="Site Settings"
         content={
           <>
-            <Text component="label" htmlFor="checkbox-radio-option-one">
-              <input
-                type="checkbox"
-                id="checkbox-radio-option-one"
-                checked={props.colorMode === 'dark'}
-                onChange={e => {
-                  let mode = e.target.checked ? 'dark' : 'light';
-                  localStorage.setItem('colorMode', mode);
-                  props.dispatch({
-                    type: 'setColorMode',
-                    mode
-                  })
-                }}
-              />
-              Use Dark Mode
-            </Text>
+            <Checkbox
+              id="checkbox-radio-option-one"
+              checked={props.colorMode === 'dark'}
+              onChange={e => {
+                let mode = e.target.checked ? 'dark' : 'light';
+                localStorage.setItem('colorMode', mode);
+                props.dispatch({
+                  type: 'setColorMode',
+                  mode
+                })
+              }}
+              label="Use Dark Mode"
+            />
             <br />
-            <Text component="label" htmlFor="instrument-select">
-              Choose Instrument:
-              <select
-                value={props.instrument}
-                onChange={(e) => {
-                  props.dispatch({
-                    type: 'setInstrument',
-                    instrument: e.target.value
-                  })
-                }}
-                id="instrument-select"
-                style={{ marginLeft: 8 }}
-              >
-                <option value="grandPiano">Grand Piano</option>
-                <option value="celticHarp">Celtic Harp</option>
-              </select>
-            </Text>
+            <Select
+              label="Instrument"
+              value={props.instrument}
+              onChange={(e) => {
+                props.dispatch({
+                  type: 'setInstrument',
+                  instrument: e.target.value
+                })
+              }}
+              id="instrument-select"
+              style={{ marginLeft: 8 }}
+            >
+              <MenuItem value="grandPiano">Grand Piano</MenuItem>
+              <MenuItem value="celticHarp">Celtic Harp</MenuItem>
+            </Select>
           </>
         }
         onConfirm={() => setOpen(false)}

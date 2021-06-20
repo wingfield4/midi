@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Link from '../Link';
 import SettingsButton from './SettingsButton';
-import Text from '../Text';
+import Text from '../mui/Text';
 
 import siteIcon from '../../../assets/favicon.ico';
 
@@ -17,6 +17,7 @@ const AppBar = (props) => {
           width="36"
           src={siteIcon}
           style={{ marginRight: 8 }}
+          alt="Project MIDI Logo"
         />
       </Link>
       <Text color={props.colors.headerText}>David's Project</Text>

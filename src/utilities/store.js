@@ -42,7 +42,8 @@ const setNotes = (state, action) => {
 }
 
 const setInstrument = (state, action) => {
-  if(!state) return 'celticHarp';
+  if(!state)
+    return 'celticHarp';
 
   switch (action.type) {
     case 'setInstrument':
@@ -53,7 +54,8 @@ const setInstrument = (state, action) => {
 }
 
 const setSustain = (state, action) => {
-  if(typeof state === 'undefined') return false;
+  if(typeof state === 'undefined')
+    return false;
 
   switch (action.type) {
     case 'setSustain':
@@ -65,13 +67,26 @@ const setSustain = (state, action) => {
   }
 }
 
+const setChord = (state, action) => {
+  if(typeof state === 'undefined')
+    return null;
+
+  switch (action.type) {
+    case 'setChord':
+      return action.chord;
+    default:
+      return state;
+  }
+}
+
 export default ((initialState) => {
   let rootReducer = combineReducers({
     colorMode: setColorMode,
     colors: setColors,
     notes: setNotes,
     instrument: setInstrument,
-    sustain: setSustain
+    sustain: setSustain,
+    chord: setChord
   })
 
   return createStore(rootReducer, initialState);

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-import Text from './Text';
+import Text from './mui/Text';
 
 const Loading = (props) => {
   return (

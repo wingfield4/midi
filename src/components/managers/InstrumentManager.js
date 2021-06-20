@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Loading from '../common/Loading';
-import Text from '../common/Text';
+import Text from '../common/mui/Text';
 
 import instrumentLibrary from '../../utilities/instrumentLibrary';
 
@@ -52,6 +52,6 @@ const Container = styled(({ colors, ...props }) => (
   justify-content: center;
   align-items: center;
   text-align: center;
-  z-index: 1;
+  z-index: 10000;
   background-color: rgba(0, 0, 0, .54);
 `;
