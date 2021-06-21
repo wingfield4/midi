@@ -10,6 +10,8 @@ import Dialog from '../mui/Dialog';
 import IconButton from '../mui/IconButton';
 import Select from '../mui/Select';
 
+import instruments from '../../../utilities/instruments';
+
 const SettingsButton = (props) => {
   const [open, setOpen] = useState(false);
 
@@ -53,8 +55,8 @@ const SettingsButton = (props) => {
               id="instrument-select"
               style={{ marginLeft: 8 }}
             >
-              <MenuItem value="grandPiano">Grand Piano</MenuItem>
-              <MenuItem value="celticHarp">Celtic Harp</MenuItem>
+              <MenuItem value={instruments.GRAND_PIANO}>Grand Piano</MenuItem>
+              <MenuItem value={instruments.CELTIC_HARP}>Celtic Harp</MenuItem>
             </Select>
           </>
         }

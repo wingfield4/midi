@@ -1,5 +1,5 @@
 //https://gist.github.com/danieliser/b4b24c9f772066bcf0a6
-export default (color, opacity) => {
+const toRGBA = (color, opacity) => {
   let hexRegex = /#[a-fA-F0-9]/gm;
   let rgbRegex = /rgb\([0-9]{1,3},[0-9]{1,3},[0-9]{1,3}\)/gm;
 
@@ -22,3 +22,5 @@ const convertHex = (color, opacity) => {
 const convertRGB = (color, opacity) => {
   return `${color.substring(0, color.length - 1)},${opacity})`;
 }
+
+export default toRGBA;

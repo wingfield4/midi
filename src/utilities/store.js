@@ -1,6 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 
 import colors from './colors';
+import instruments from './instruments';
 
 const DEFAULT_COLOR_MODE = localStorage.getItem('colorMode') || 'dark';
 
@@ -43,7 +44,7 @@ const setNotes = (state, action) => {
 
 const setInstrument = (state, action) => {
   if(!state)
-    return 'celticHarp';
+    return instruments.GRAND_PIANO;
 
   switch (action.type) {
     case 'setInstrument':

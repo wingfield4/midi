@@ -11,7 +11,7 @@ const InputManager = ({ dispatch }) => {
         let midiNote = keyboardMap[e.key.toLowerCase()];
         dispatch({
           type: 'addNote',
-          note: createNote(midiNote, 100)
+          note: createNote(midiNote, 75)
         })
       }
     }

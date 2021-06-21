@@ -6,18 +6,16 @@ import createNote from '../../utilities/createNote';
 const MidiManager = ({ dispatch }) => {
   useEffect(() => {
     const addNote = (midiNote, velocity) => {
-      let note = createNote(midiNote, velocity);
       dispatch({
         type: 'addNote',
-        note
+        note: createNote(midiNote, velocity)
       });
     }
   
     const removeNote = (midiNote) => {
-      let note = createNote(midiNote);
       dispatch({
         type: 'removeNote',
-        note
+        note: createNote(midiNote)
       });
     }
 
@@ -32,9 +30,7 @@ const MidiManager = ({ dispatch }) => {
     }
   
     const getMIDIMessage = (message) => {
-      const command = message.data[0];
-      const note = message.data[1];
-      const velocity = (message.data.length > 2) ? message.data[2] : 0;
+      const [command, note, velocity = 0] = message.data;
   
       switch (command) {
         case 176: //toggle sustain
@@ -50,11 +46,12 @@ const MidiManager = ({ dispatch }) => {
           removeNote(note);
           break;
         default:
+          //TODO handle invalid command
       }
     }
 
     if(navigator.requestMIDIAccess) {
-      navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
+      navigator.requestMIDIAccess().then(onMIDISuccess).catch(onMIDIFailure);
     } else {
       //TODO handle bad browser
       console.log('WebMIDI is not supported in this browser.');
