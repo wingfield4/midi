@@ -2,7 +2,7 @@ name: Deploy (develop)
 on:
   push:
     branches:
-      - develop
+      - staging
 jobs:
   build:
     name: GAE Deploy
