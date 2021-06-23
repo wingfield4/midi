@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
-import instrumentLibrary from '../../utilities/instrumentLibrary';
+import instrumentLibrary from '../../../utilities/instrumentLibrary';
 
 const MidiSoundManager = (props) => {
   const [activeNotes, setActiveNotes] = useState([]);
@@ -44,7 +44,6 @@ const MidiSoundManager = (props) => {
     })
   }, [props.notes, props.sustain]);
 
-  //loading dialog or something
   return (
     <></>
   )

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import createNote from '../../utilities/createNote';
+import createNote from '../../../utilities/createNote';
 
 const MidiManager = ({ dispatch }) => {
   useEffect(() => {
@@ -55,6 +55,10 @@ const MidiManager = ({ dispatch }) => {
     } else {
       //TODO handle bad browser
       console.log('WebMIDI is not supported in this browser.');
+    }
+
+    return () => {
+      //TODO handle cleanup
     }
   }, [dispatch]);
 

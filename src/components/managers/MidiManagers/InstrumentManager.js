@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Loading from '../common/Loading';
-import Text from '../common/mui/Text';
+import Loading from '../../common/Loading';
+import Text from '../../common/mui/Text';
 
-import instrumentLibrary from '../../utilities/instrumentLibrary';
+import instrumentLibrary from '../../../utilities/instrumentLibrary';
 
 const InitializeInstrumentDialog = (props) => {
   const [open, setOpen] = useState(true);

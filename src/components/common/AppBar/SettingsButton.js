@@ -3,14 +3,11 @@ import { connect } from 'react-redux';
 
 import { Cog } from 'mdi-material-ui';
 
-import MenuItem from '@material-ui/core/MenuItem';
-
 import Checkbox from '../mui/Checkbox';
 import Dialog from '../mui/Dialog';
 import IconButton from '../mui/IconButton';
-import Select from '../mui/Select';
-
-import instruments from '../../../utilities/instruments';
+import InstrumentSelect from '../InstrumentSelect';
+import MasterVolumeSlider from '../MasterVolumeSlider';
 
 const SettingsButton = (props) => {
   const [open, setOpen] = useState(false);
@@ -19,9 +16,8 @@ const SettingsButton = (props) => {
     <>
       <IconButton
         onClick={() => setOpen(true)}
-        color={props.colors.headerText}
       >
-        <Cog />
+        <Cog style={{ color: props.colors.headerText }} />
       </IconButton>
       <Dialog
         open={open}
@@ -43,24 +39,12 @@ const SettingsButton = (props) => {
               label="Use Dark Mode"
             />
             <br />
-            <Select
-              label="Instrument"
-              value={props.instrument}
-              onChange={(e) => {
-                props.dispatch({
-                  type: 'setInstrument',
-                  instrument: e.target.value
-                })
-              }}
-              id="instrument-select"
-              style={{ marginLeft: 8 }}
-            >
-              <MenuItem value={instruments.GRAND_PIANO}>Grand Piano</MenuItem>
-              <MenuItem value={instruments.CELTIC_HARP}>Celtic Harp</MenuItem>
-            </Select>
+            <InstrumentSelect />
+            <MasterVolumeSlider />
           </>
         }
         onConfirm={() => setOpen(false)}
+        confirmLabel="Done"
       />
     </>
   )
@@ -68,6 +52,5 @@ const SettingsButton = (props) => {
 
 export default connect(state => ({
   colorMode: state.colorMode,
-  colors: state.colors,
-  instrument: state.instrument
+  colors: state.colors
 }))(SettingsButton);

@@ -80,6 +80,18 @@ const setChord = (state, action) => {
   }
 }
 
+const setMasterVolume = (state, action) => {
+  if(typeof state === 'undefined')
+    return 100;
+
+  switch (action.type) {
+    case 'setMasterVolume':
+      return action.masterVolume;
+    default:
+      return state;
+  }
+}
+
 export default ((initialState) => {
   let rootReducer = combineReducers({
     colorMode: setColorMode,
@@ -87,7 +99,8 @@ export default ((initialState) => {
     notes: setNotes,
     instrument: setInstrument,
     sustain: setSustain,
-    chord: setChord
+    chord: setChord,
+    masterVolume: setMasterVolume
   })
 
   return createStore(rootReducer, initialState);

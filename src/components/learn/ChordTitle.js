@@ -11,7 +11,7 @@ const ChordTitle = (props) => {
     <Container>
       <InnerContainer colors={props.colors}>
         {props.chord && 
-          <Text fontSize={36} color={props.colors.accent3}>
+          <Text fontSize={36} color={props.colors.text}>
             {notes[props.chord.root]} {props.chord.type.name}
           </Text>
         }

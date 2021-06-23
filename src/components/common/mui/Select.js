@@ -17,6 +17,9 @@ const Select = ({
   
   return (
     <FormControl
+      style={{
+        minWidth: 128
+      }}
       {...FormControlProps}
       disabled={disabled}
     >

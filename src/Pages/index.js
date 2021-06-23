@@ -4,8 +4,9 @@ import {
   Route
 } from "react-router-dom";
 
-import Demo from './Demo';
+import EarTraining from './EarTraining';
 import Home from './Home';
+import Play from './Play';
 
 const Pages = () => {
   return (
@@ -23,8 +24,12 @@ export default Pages;
 
 const routes = [
   {
-    path: '/demo',
-    Component: Demo
+    path: '/play',
+    Component: Play
+  },
+  {
+    path: '/earTraining',
+    Component: EarTraining
   },
   {
     path: '/',

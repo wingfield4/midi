@@ -264,7 +264,7 @@ const getTheme = (colors) => ({
         color: colors.text
       },
       root: {
-        color: colors.accent2
+        color: colors.accent1
       }
     },
     MuiSwitch: {

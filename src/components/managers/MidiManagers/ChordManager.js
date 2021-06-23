@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import chordify from '../../utilities/chordify';
+import chordify from '../../../utilities/chordify';
 
 const ChordManager = ({ notes, dispatch }) => {
   useEffect(() => {

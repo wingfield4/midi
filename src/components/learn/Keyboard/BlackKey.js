@@ -20,7 +20,7 @@ const Rect = styled(({ active, colors, ...props }) => (
   />
 ))`
   ${props => props.active ? '' : 'transition: fill .3s;'}
-  fill: ${props => props.active ? props.colors.accent2 : props.colors.pianoBlack};
+  fill: ${props => props.active ? props.colors.accent3 : props.colors.pianoBlack};
   stroke: ${props => props.colors.captionText};
   stroke-width: 0px;
 `;

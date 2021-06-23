@@ -3,6 +3,8 @@ import grandPiano from './grandPiano';
 
 import createSound from '../createSound';
 import findClosest from '../findClosest';
+import scaleVolume from '../scaleVolume';
+import store from '../store';
 
 const library = {
   celticHarp,
@@ -54,12 +56,14 @@ const instrument = {
   sounds: null,
   ids: {},
   playSound: (note) => {
+    const { masterVolume } = store.getState();
+
     let baseNotes = Object.keys(library[instrument.currentInstrument]);
     let closestBaseNote = findClosest(baseNotes, note.midiNote);
     
     let distance = closestBaseNote - note.midiNote;
     let rate = Math.pow(2, (0-distance) / 12);
-    let volume = .8*(Math.exp(parseInt(note.velocity)/100)-1)/(Math.E-1);
+    let volume = .8*scaleVolume(parseInt(note.velocity))*(masterVolume/100);
 
     let newId = instrument.sounds[closestBaseNote].play();
 
