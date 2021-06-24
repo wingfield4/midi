@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
@@ -9,13 +9,30 @@ import RightKey from './RightKey';
 import Octave from './Octave';
 import SustainPedal from './SustainPedal';
 
+const KEYBOARD_WIDTH = 2650;
 const octaves = [2, 3, 4, 5, 6, 7, 8];
 
 const Keyboard = (props) => {
-  const midiNotes = props.notes.map(note => note.midiNote);
+  const [scale, setScale] = useState(1);
 
+  useEffect(() => {
+    const updateScale = () => {
+      const width = window.innerWidth;
+      console.log('width', width);
+      setScale(Math.max(.5, width/KEYBOARD_WIDTH));
+    }
+
+    updateScale();
+    window.onresize = updateScale;
+
+    return () => {
+      window.onresize = null;
+    }
+  }, [])
+
+  const midiNotes = props.notes.map(note => note.midiNote);
   return (
-    <Container>
+    <Container scale={scale}>
       <SustainPedal />
       <KeyboardContainer>
         <LeftKey
@@ -47,9 +64,14 @@ export default connect(state => ({
   notes: state.notes
 }))(Keyboard);
 
-const Container = styled.div`
+const Container = styled(({ scale, ...props }) => (
+  <div {...props} />
+))`
   display: flex;
-  zoom: .635;
+  transform-origin: top left;
+  transform: scale(${props => props.scale});
+  -moz-transform: scale(${props => props.scale});
+  width: ${props => 100/props.scale}%;
 `;
 
 const KeyboardContainer = styled.div`
@@ -57,6 +79,6 @@ const KeyboardContainer = styled.div`
   width: 100%;
   position: relative;
   overflow-x: auto;
-  overflow-y: none;
+  overflow-y: hidden;
   white-space: nowrap;
 `;
