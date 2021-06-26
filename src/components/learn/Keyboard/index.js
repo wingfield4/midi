@@ -30,6 +30,7 @@ const Keyboard = (props) => {
     }
   }, [])
 
+  const promptNotes = props.promptNotes || [];
   const midiNotes = props.notes.map(note => note.midiNote);
   return (
     <Container scale={scale}>
@@ -37,23 +38,28 @@ const Keyboard = (props) => {
       <KeyboardContainer>
         <LeftKey
           active={midiNotes.includes(21)}
+          prompt={promptNotes.includes(21)}
         />
         <BlackKey
           active={midiNotes.includes(22)}
+          prompt={promptNotes.includes(22)}
           offset={1}
         />
         <RightKey
           active={midiNotes.includes(23)}
+          prompt={promptNotes.includes(23)}
         />
         {octaves.map(octave => (
           <Octave
             key={octave}
             octave={octave}
             activeNotes={midiNotes}
+            promptNotes={promptNotes}
           />
         ))}
         <FullKey
           active={midiNotes.includes(108)}
+          prompt={promptNotes.includes(108)}
         />
       </KeyboardContainer>
     </Container>

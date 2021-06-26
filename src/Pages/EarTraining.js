@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MidiManagers from '../components/managers/MidiManagers';
+import InstrumentManager from '../components/managers/MidiManagers/InstrumentManager';
 
 import EarTrainingComponent from '../components/earTraining/EarTrainingComponent';
 
@@ -9,8 +9,8 @@ const EarTraining = () => {
     <>
       {/* metatags */}
 
-      {/* managers */}
-      <MidiManagers />
+      {/* Managers */}
+      <InstrumentManager />
 
       {/* components */}
       <EarTrainingComponent />

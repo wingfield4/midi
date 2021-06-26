@@ -42,6 +42,11 @@ const InputManager = ({ dispatch }) => {
 
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('keyup', onKeyUp);
+
+    return ()  => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('keyup', onKeyUp);
+    }
   }, [dispatch])
 
   return (

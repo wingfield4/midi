@@ -5,14 +5,12 @@ import Button from '../../common/mui/Button';
 import DifficultySelect from './DifficultySelect';
 import Text from '../../common/mui/Text';
 
-import createExercise from '../../../utilities/createExercise';
-
 const InitialSetup = (props) => {
   const [difficulty, setDifficulty] = useState('beginner');
 
   const handleSubmit = () => {
     if(props.onSubmit) {
-      props.onSubmit(createExercise({ difficulty }))
+      props.onSubmit({ difficulty });
     }
   }
 

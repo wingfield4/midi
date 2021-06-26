@@ -42,6 +42,18 @@ const setNotes = (state, action) => {
   }
 }
 
+const setLastNote = (state, action) => {
+  if(typeof state === 'undefined') return null;
+
+  switch (action.type) {
+    case 'addNote':
+      console.log('addingNote', action.note);
+      return action.note;
+    default:
+      return state;
+  }
+}
+
 const setInstrument = (state, action) => {
   if(!state)
     return instruments.GRAND_PIANO;
@@ -97,6 +109,7 @@ export default ((initialState) => {
     colorMode: setColorMode,
     colors: setColors,
     notes: setNotes,
+    lastNote: setLastNote,
     instrument: setInstrument,
     sustain: setSustain,
     chord: setChord,
