@@ -2,7 +2,7 @@ import moment from 'moment';
 
 import { notes } from './notes';
 
-const createNote = (midiNote, velocity) => {
+const createNote = (midiNote, velocity = 75) => {
   return {
     octave: Math.floor(midiNote / 12),
     step: (midiNote % 12) + 1, //gets step from C within octave
