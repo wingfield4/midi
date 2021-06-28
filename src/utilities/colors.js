@@ -7,7 +7,7 @@ const colors = {
     header: '#26333e',
     headerText: '#ebeff2',
 
-    text: '#171f26',
+    text: '#0d1216',
     captionText: 'rgba(0, 0, 0, .54)',
     border: 'rgba(0, 0, 0, .12)',
     error: '#fe7467',
@@ -29,7 +29,7 @@ const colors = {
     pianoBlack: '#26333e'
   },
   dark: {
-    pageBackground: '#171f26',
+    pageBackground: '#0d1216',
     widgetBackground: '#26333e',
     highlightBackground: '#354756',
 
@@ -55,7 +55,7 @@ const colors = {
     accent6Text: '#26333e',
 
     pianoWhite: '#354756',
-    pianoBlack: '#171f26'
+    pianoBlack: '#0d1216'
   }
 }
 
