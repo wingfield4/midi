@@ -15,10 +15,10 @@ const App = () => {
     <Provider store={store}>
       <ThemeProvider>
         <BrowserRouter>
+          <AppBar />
           <PageContainer>
             <Pages />
           </PageContainer>
-          <AppBar />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
