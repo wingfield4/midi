@@ -31,8 +31,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 32px;
-  margin-bottom: 64px;
 `;
 
 const InnerContainer = styled(({ colors, ...props }) => (
@@ -46,6 +44,5 @@ const InnerContainer = styled(({ colors, ...props }) => (
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 8px;
   border: 2px solid ${props => props.colors.captionText};
 `;

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Switch,
   Route
@@ -6,7 +6,9 @@ import {
 
 import EarTraining from './EarTraining';
 import Home from './Home';
+import LearnChords from './LearnChords';
 import Play from './Play';
+import PlayAlong from './PlayAlong';
 
 const Pages = () => {
   return (
@@ -24,12 +26,20 @@ export default Pages;
 
 const routes = [
   {
+    path: '/earTraining',
+    Component: EarTraining
+  },
+  {
+    path: '/learnChords',
+    Component: LearnChords
+  },
+  {
     path: '/play',
     Component: Play
   },
   {
-    path: '/earTraining',
-    Component: EarTraining
+    path: '/playAlong',
+    Component: PlayAlong
   },
   {
     path: '/',

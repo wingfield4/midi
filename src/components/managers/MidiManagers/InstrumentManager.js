@@ -26,9 +26,9 @@ const InitializeInstrumentDialog = (props) => {
     <>
       {open &&
         <Container>
-          {loading && <Text fontSize={24}>Initializing Instrument</Text>}
+          {loading && <Text color="#FFF" fontSize={24}>Initializing Instrument</Text>}
           {loading && <Loading />}
-          {!loading && <Text fontSize={24} style={{ marginBottom: 48 }}>Done!</Text>}
+          {!loading && <Text color="#FFF" fontSize={24} style={{ marginBottom: 48 }}>Done!</Text>}
         </Container>
       }
     </>

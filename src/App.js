@@ -8,7 +8,7 @@ import PageContainer from './components/common/PageContainer';
 import Pages from './Pages';
 import ThemeProvider from './components/common/mui/ThemeProvider';
 
-import store from './utilities/store'
+import store from './utilities/store';
 
 const App = () => {
   return (

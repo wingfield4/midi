@@ -7,12 +7,12 @@ import Text from './mui/Text';
 const Loading = (props) => {
   return (
     <Container>
-      {props.message && <Text>{props.message}</Text>}
+      {props.message && <Text color="#FFF">{props.message}</Text>}
       <div className="lds-ellipsis">
-        <div style={{ background: props.colors.text }}></div>
-        <div style={{ background: props.colors.text }}></div>
-        <div style={{ background: props.colors.text }}></div>
-        <div style={{ background: props.colors.text }}></div>
+        <div style={{ background: '#FFF' }}></div>
+        <div style={{ background: '#FFF' }}></div>
+        <div style={{ background: '#FFF' }}></div>
+        <div style={{ background: '#FFF' }}></div>
       </div>
     </Container>
   )

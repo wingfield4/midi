@@ -7,6 +7,8 @@ const HomeLinks = () => {
   return (
     <Container>
       <HomeLink to="/play" label="Just Play" />
+      <HomeLink to="/learnChords" label="Learn Chords" />
+      <HomeLink to="/playAlong" label="Play Along" />
       <HomeLink to="/earTraining" label="Train Your Ear" />
     </Container>
   )
