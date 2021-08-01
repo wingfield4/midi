@@ -26,7 +26,7 @@ const GetStarted = (props) => {
           </Text>
           <Text>
             Click here to go to our 'Just Play' mode. 
-            There, you can use you computer's keyboard or a connected MIDI 
+            There, you can use your computer keyboard or a connected MIDI 
             device to play our virtual piano! Or, you can check out some of our innovative
             learning exercises below.
           </Text>
