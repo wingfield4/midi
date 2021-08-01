@@ -4,8 +4,10 @@ import {
   Route
 } from "react-router-dom";
 
+import About from './About';
 import EarTraining from './EarTraining';
 import Home from './Home';
+import HowTo from './HowTo';
 import LearnChords from './LearnChords';
 import Play from './Play';
 import PlayAlong from './PlayAlong';
@@ -26,8 +28,16 @@ export default Pages;
 
 const routes = [
   {
+    path: '/about',
+    Component: About
+  },
+  {
     path: '/earTraining',
     Component: EarTraining
+  },
+  {
+    path: '/howTo',
+    Component: HowTo
   },
   {
     path: '/learnChords',
