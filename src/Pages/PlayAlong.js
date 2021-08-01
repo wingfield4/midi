@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import MidiManagers from '../components/managers/MidiManagers';
 
@@ -8,6 +9,9 @@ const PlayAlong = () => {
   return (
     <>
       {/* metatags */}
+      <Helmet>
+        <title>Play Along / keyluminate</title>
+      </Helmet>
 
       {/* managers */}
       <MidiManagers />

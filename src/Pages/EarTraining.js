@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 import InstrumentManager from '../components/managers/MidiManagers/InstrumentManager';
 
@@ -8,6 +9,9 @@ const EarTraining = () => {
   return (
     <>
       {/* metatags */}
+      <Helmet>
+        <title>Train Your Ear / keyluminate</title>
+      </Helmet>
 
       {/* Managers */}
       <InstrumentManager />
