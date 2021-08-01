@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
+import Button from '../mui/Button';
 import Link from '../Link';
 import SettingsButton from './SettingsButton';
-import Text from '../mui/Text';
 
-import tempIcon from '../../../assets/tempicon.png';
+import icon from '../../../assets/icon_label_large_square.png';
 
 const AppBar = (props) => {
   return (
@@ -14,14 +14,22 @@ const AppBar = (props) => {
       <Link to="/">
         <img
           height="36"
-          width="36"
-          src={tempIcon}
+          src={icon}
           style={{ marginRight: 8 }}
           alt="Project MIDI Logo"
         />
       </Link>
-      <Text color={props.colors.headerText}>Project MIDI</Text>
       <div style={{ flex: 1 }} />
+      <Link to="/howTo">
+        <HeaderButton colors={props.colors}>
+          How To Use
+        </HeaderButton>
+      </Link>
+      <Link to="/about">
+        <HeaderButton colors={props.colors}>
+          About Us
+        </HeaderButton>
+      </Link>
       <SettingsButton />
     </Container>
   )
@@ -45,4 +53,18 @@ const Container = styled(({ colors, ...props }) => (
   padding-left: 16px;
   padding-right: 16px;
   box-shadow: 0px 0px 16px 0px ${props => props.colors.header};
+`;
+
+const HeaderButton = styled(({ colors, ...props }) => (
+  <Button 
+    variant="outlined"
+    {...props}
+  />
+))`
+  && {
+    border-color: ${props => props.colors.headerText};
+    border-radius: 0px;
+    color: ${props => props.colors.headerText};
+    margin-right: 16px;
+  }
 `;

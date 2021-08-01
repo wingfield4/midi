@@ -19,4 +19,5 @@ const Container = styled(({ colors, ...props }) => (
   padding: 8px;
   padding-top: 56px;
   min-height: calc(100% - 64px);
+  overflow-x: hidden;
 `;

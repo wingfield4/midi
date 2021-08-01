@@ -7,7 +7,7 @@ const createSound = (path, options) => {
     onloaderror: options.onLoadError
   });
 
-  return sound
+  return sound;
 }
 
 export default createSound;

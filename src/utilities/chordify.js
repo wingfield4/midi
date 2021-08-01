@@ -1,4 +1,4 @@
-import chordTypes from './chordTypes';
+import chordDefinitions from './chordDefinitions';
 import mod from './mod';
 import { steps as rootNotes } from './notes';
 
@@ -13,10 +13,10 @@ const chordifyWithoutKey = (notes) => {
   let sortedNotes = notes.sort((a, b) => (a.octave*12 + a.step) - (b.octave*12 + b.step));
 
   Object.entries(rootNotes).forEach(([ key, rootNoteStep ]) => {
-    chordTypes.forEach(chordType => {
+    chordDefinitions.forEach(chordDefinition => {
       let chordValue = 0;
 
-      chordType.steps.forEach((chordStep, chordStepIndex) => {
+      chordDefinition.steps.forEach((chordStep, chordStepIndex) => {
         sortedNotes.forEach((note, noteIndex) => {
           if(mod(note.step - rootNoteStep + 1, 12) === chordStep) {
             chordValue += matchValues.MATCHING_STEP;
@@ -33,7 +33,7 @@ const chordifyWithoutKey = (notes) => {
         mostLikelyChordValue = chordValue;
         mostLikelyChord = {
           root: rootNoteStep,
-          type: chordType
+          type: chordDefinition
         }
       }
 

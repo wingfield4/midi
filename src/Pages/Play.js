@@ -7,7 +7,7 @@ import PlayComponent from '../components/play/PlayComponent';
 const Demo = () => {
   return (
     <>
-      {/* metatags */}
+      {/* metatags TODO */}
 
       {/* managers */}
       <MidiManagers />
