@@ -6,7 +6,7 @@ import Link from '../Link';
 import SettingsButton from './SettingsButton';
 import Text from '../mui/Text';
 
-import tempIcon from '../../../assets/tempicon.png';
+import icon from '../../../assets/icon_label_large_square.png';
 
 const AppBar = (props) => {
   return (
@@ -14,13 +14,12 @@ const AppBar = (props) => {
       <Link to="/">
         <img
           height="36"
-          width="36"
-          src={tempIcon}
+          src={icon}
           style={{ marginRight: 8 }}
           alt="Project MIDI Logo"
         />
       </Link>
-      <Text color={props.colors.headerText}>Project MIDI</Text>
+      {/* <Text color={props.colors.headerText}>Keyluminate</Text> */}
       <div style={{ flex: 1 }} />
       <SettingsButton />
     </Container>

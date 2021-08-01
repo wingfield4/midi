@@ -3,7 +3,9 @@ import React from 'react';
 import MuiButton from '@material-ui/core/Button';
 
 const Button = ({ children, small, ...props }) => {
-  let inlineStyle = {};
+  let inlineStyle = {
+    borderRadius: 0
+  };
 
   if(small) {
     inlineStyle.paddingTop = 4;

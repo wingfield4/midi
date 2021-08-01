@@ -1,6 +1,9 @@
 import toRGBA from './toRGBA';
 
 const getTheme = (colors) => ({
+  typography: {
+    fontFamily: `'Source Sans Pro', sans-serif`
+  },
   palette: {
     primary: {
       main: colors.accent1
