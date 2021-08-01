@@ -10,7 +10,12 @@ const HomeComponent = () => {
   return (
     <Container>
       <WelcomeMessage />
-      <Divider />
+      <Divider 
+        style={{ 
+          marginTop: 48,
+          marginBottom: 32
+        }}
+      />
       <GetStarted />
       <HomeLinks />
     </Container>

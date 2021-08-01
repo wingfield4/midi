@@ -46,7 +46,7 @@ const Container = styled(({ colors, ...props }) => (
   && {
     width: 800px;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     margin: 16px;
     transition: background-color .2s;
     &:hover {

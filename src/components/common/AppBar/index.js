@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
+import HelpCircleOutlineIcon from 'mdi-material-ui/HelpCircleOutline';
+import InformationOutlineIcon from 'mdi-material-ui/InformationOutline';
+
 import Button from '../mui/Button';
+import Drawer from './Drawer';
 import Link from '../Link';
 import SettingsButton from './SettingsButton';
 
@@ -11,22 +15,25 @@ import icon from '../../../assets/icon_label_large_square.png';
 const AppBar = (props) => {
   return (
     <Container colors={props.colors}>
+      <Drawer />
       <Link to="/">
         <img
           height="36"
           src={icon}
-          style={{ marginRight: 8 }}
+          style={{ marginRight: 8, marginLeft: 8 }}
           alt="Project MIDI Logo"
         />
       </Link>
       <div style={{ flex: 1 }} />
       <Link to="/howTo">
         <HeaderButton colors={props.colors}>
+          <HelpCircleOutlineIcon style={{ marginRight: 4 }} />
           How To Use
         </HeaderButton>
       </Link>
       <Link to="/about">
         <HeaderButton colors={props.colors}>
+          <InformationOutlineIcon style={{ marginRight: 4 }} />
           About Us
         </HeaderButton>
       </Link>

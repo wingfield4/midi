@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 
-const Divider = (props) => {
+const Divider = ({ colors, ...props }) => {
   return (
-    <Container colors={props.colors} />
+    <Container
+      colors={colors}
+      {...props}
+    />
   )
 }
 
@@ -18,7 +21,7 @@ const Container = styled(({ colors, ...props }) => (
   margin-top: 16px;
   margin-bottom: 16px;
   height: 1px;
-  background-color: ${props => props.colors.captionText};
+  background-color: ${props => props.colors.border};
   width: 100%;
   max-width: 720px;
 `;
