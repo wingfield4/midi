@@ -5,11 +5,17 @@ import InitialSetup from './InitialSetup';
 
 const PlayAlongComponent = () => {
   const [song, setSong] = useState(null);
+  const [stem, setStem] = useState(null);
+  const [mode, setMode] = useState(null);
 
   const handleSubmit = ({
-    song
+    song,
+    stem,
+    mode
   }) => {
     setSong(song);
+    setStem(stem);
+    setMode(mode);
   }
 
   return (
@@ -19,9 +25,11 @@ const PlayAlongComponent = () => {
           onSubmit={handleSubmit}
         />
       }
-      {song &&
+      {song && stem && mode && 
         <Exercise
           song={song}
+          stem={stem}
+          mode={mode}
         />
       }
     </>

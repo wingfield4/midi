@@ -64,6 +64,8 @@ const ChordScroller = (props) => {
         <ChordPrompt
           key={index}
           prompt={prompt}
+          mode={props.mode}
+          songKey={props.song.song.key}
         />
       ))}
     </Container>

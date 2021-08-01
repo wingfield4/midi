@@ -19,4 +19,4 @@ const SongSelect = (props) => {
   )
 }
 
-export default SongSelect
+export default SongSelect;

@@ -14,7 +14,7 @@ const Exercise = (props) => {
 
   useEffect(() => {
     song.initialize(props.song.song, {
-      stem: stems.FULL
+      stem: props.stem
     }).then(() => {
       let timer = createTimer({
         events: [{
@@ -44,6 +44,7 @@ const Exercise = (props) => {
       <ChordScroller
         song={props.song}
         status={status}
+        mode={props.mode}
       />
       <Keyboard />
     </>

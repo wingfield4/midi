@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Text from '../../common/mui/Text';
 
 import { notes } from '../../../utilities/notes';
+import chordFormats from '../../../utilities/chordFormats';
 import toRGBA from '../../../utilities/toRGBA';
 
 const ChordPrompt = (props) => {
@@ -21,7 +22,12 @@ const ChordPrompt = (props) => {
         colors={props.colors}
       >
         <Text color={props.colors.accent1Text} fontSize={36}>
-          {notes[props.prompt.chord.root]} {props.prompt.chord.type}
+          {props.mode === chordFormats.NAMES && 
+            <>{notes[props.prompt.chord.root]} {props.prompt.chord.type}</>
+          }
+          {props.mode === chordFormats.RELATIVE_POSITION && 
+            <>TODO</>
+          }
         </Text>
       </StartContainer>
       <TrailContainer
