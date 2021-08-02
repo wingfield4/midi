@@ -37,11 +37,11 @@ const Exercise = (props) => {
             <Text style={{ fontSize: 28 }}>
               <b>{notes[targetChord.root]} {targetChord.type.name}</b>
             </Text>
+            <Button onClick={() => setNeedHint(true)}>
+              Need a hint?
+            </Button>
           </>
         }
-        <Button onClick={() => setNeedHint(true)}>
-          Need a hint?
-        </Button>
       </TextContainer>
       <Keyboard promptNotes={promptNotes} />
     </>
