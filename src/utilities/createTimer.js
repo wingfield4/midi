@@ -4,6 +4,7 @@ const createTimer = ({
   interval = 100,
   events = [],
   endAfterEvents = false,
+  repeat = false,
 
   /* UNCOMMON CONFIG  */
   refreshInterval = 50,
@@ -11,7 +12,7 @@ const createTimer = ({
   const timer = {
     start: () => {
       timer.events.sort(event => {
-
+        //sort by start time
       });
 
       timer.mode = modes.RUNNING;
@@ -42,8 +43,14 @@ const createTimer = ({
       }
 
       //end if no more event (if that's what we want)
-      if(timer.events.length === 0 && endAfterEvents) {
-        timer.stop();
+      if(timer.events.length === 0) {
+        if(endAfterEvents) {
+          timer.stop();
+        } else if(repeat) {
+          timer.events = timer.eventsCopy.concat([]);
+          timer.elapsedTime = 0;
+          timer.startedAt = Date.now();
+        }
       }
       
       //schedule next tick
@@ -56,7 +63,7 @@ const createTimer = ({
       }
     },
 
-
+    eventsCopy: events.concat([]),
     mode: modes.STOPPED,
     startedAt: null,
     elapsedTime: 0,

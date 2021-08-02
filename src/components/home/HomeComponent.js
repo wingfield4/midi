@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Divider from '../common/Divider';
+import HomeIcon from './HomeIcon';
 import HomeLinks from './HomeLinks';
 import GetStarted from './GetStarted';
 import WelcomeMessage from './WelcomeMessage';
@@ -9,13 +10,14 @@ import WelcomeMessage from './WelcomeMessage';
 const HomeComponent = () => {
   return (
     <Container>
+      <HomeIcon />
       <WelcomeMessage />
-      <Divider 
+      {/* <Divider 
         style={{ 
           marginTop: 48,
           marginBottom: 32
         }}
-      />
+      /> */}
       <GetStarted />
       <HomeLinks />
     </Container>

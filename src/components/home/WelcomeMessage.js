@@ -24,5 +24,5 @@ export default connect(state => ({
 const Container = styled.div`
   max-width: 800px;
   text-align: center;
-  padding-top: 24px;
+  padding-bottom: 56px;
 `;
