@@ -11,8 +11,8 @@ const DifficultySelect = (props) => {
       {...props}
     >
       <MenuItem value="beginner">Beginner</MenuItem>
-      <MenuItem value="intermediate">Intermediate</MenuItem>
-      <MenuItem value="advanced">Advanced</MenuItem>
+      {/* <MenuItem value="intermediate">Intermediate</MenuItem>
+      <MenuItem value="advanced">Advanced</MenuItem> */}
     </Select>
   )
 }
