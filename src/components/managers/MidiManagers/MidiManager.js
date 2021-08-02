@@ -1,39 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import createNote from '../../../utilities/createNote';
 
 const MidiManager = ({ dispatch }) => {
-  useEffect(() => {
-    const addNote = (midiNote, velocity) => {
-      dispatch({
-        type: 'addNote',
-        note: createNote(midiNote, velocity)
-      });
-    }
-  
-    const removeNote = (midiNote) => {
-      dispatch({
-        type: 'removeNote',
-        note: createNote(midiNote)
-      });
-    }
+  const [inputs, setInputs] = useState([]);
 
+  useEffect(() => {
     const onMIDISuccess = (midiAccess) => {
-      midiAccess.inputs.forEach(input => {
-        input.onmidimessage = getMIDIMessage;
-      })
+      console.log('here');
+      setInputs(midiAccess.inputs);
     }
   
     const onMIDIFailure = () => {
       //TODO handle error
     }
-  
+
+    if(navigator.requestMIDIAccess) {
+      navigator.requestMIDIAccess().then(onMIDISuccess).catch(onMIDIFailure);
+    } else {
+      //TODO handle bad browser
+      console.log('WebMIDI is not supported in this browser.');
+    }
+  }, [setInputs]);
+
+  useEffect(() => {
     const getMIDIMessage = (message) => {
       const [command, note, velocity = 0] = message.data;
   
       switch (command) {
         case 176: //toggle sustain
+          console.log('toggle sustain');
           dispatch({ type: 'toggleSustain' });
           break;
         case 144: //noteOn
@@ -50,17 +47,30 @@ const MidiManager = ({ dispatch }) => {
       }
     }
 
-    if(navigator.requestMIDIAccess) {
-      navigator.requestMIDIAccess().then(onMIDISuccess).catch(onMIDIFailure);
-    } else {
-      //TODO handle bad browser
-      console.log('WebMIDI is not supported in this browser.');
+    const addNote = (midiNote, velocity) => {
+      dispatch({
+        type: 'addNote',
+        note: createNote(midiNote, velocity)
+      });
+    }
+  
+    const removeNote = (midiNote) => {
+      dispatch({
+        type: 'removeNote',
+        note: createNote(midiNote)
+      });
     }
 
+    inputs.forEach(input => {
+      input.onmidimessage = getMIDIMessage;
+    })
+
     return () => {
-      //TODO handle cleanup
+      inputs.forEach(input => {
+        input.onmidimessage = null;
+      })
     }
-  }, [dispatch]);
+  }, [dispatch, inputs]);
 
   return (
     <></>
