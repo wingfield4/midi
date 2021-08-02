@@ -1,6 +1,6 @@
 const stems = {
-  FULL: 'full',
-  NO_CHORDS: 'no_chords'
+  FULL: 'Full',
+  NO_CHORDS: 'No Chords'
 }
 
 export default stems;
