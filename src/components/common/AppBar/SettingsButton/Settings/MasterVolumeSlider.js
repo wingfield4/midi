@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 
-import Slider from './mui/Slider';
-import Text from './mui/Text';
+import Slider from '../../../mui/Slider';
+import Text from '../../../mui/Text';
 
-import scaleVolume from '../../utilities/scaleVolume';
+import scaleVolume from '../../../../../utilities/scaleVolume';
 
 const MasterVolumeSlider = (props) => {
   return (
     <Container>
-      <Text id="master-volume-slider">Master Volume</Text>
+      <Text id="master-volume-slider">Instrument Volume</Text>
       <Slider
         value={props.masterVolume}
         onChange={(e, masterVolume) => props.dispatch({ type: 'setMasterVolume', masterVolume })}
@@ -27,5 +27,5 @@ export default connect(state => ({
 
 const Container = styled.div`
   margin-top: 16px;
-  max-width: 256px;
+  max-width: 296px;
 `;

@@ -8,18 +8,20 @@ import Text from '../../common/mui/Text';
 import instrumentLibrary from '../../../utilities/instrumentLibrary';
 
 const InitializeInstrumentDialog = (props) => {
-  const [open, setOpen] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setOpen(true);
-    setLoading(true);
-    instrumentLibrary.initialize(props.instrument).then(() => {
-      setLoading(false);
-      setTimeout(() => {
-        setOpen(false);
-      }, 1000)
-    });
+    if(!instrumentLibrary.isInitialized) {
+      setOpen(true);
+      setLoading(true);
+      instrumentLibrary.initialize(props.instrument).then(() => {
+        setLoading(false);
+        setTimeout(() => {
+          setOpen(false);
+        }, 1000)
+      });
+    }
   }, [props.instrument])
 
   return (

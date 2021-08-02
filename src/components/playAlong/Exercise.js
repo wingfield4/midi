@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import ChordScroller, { PROMPT_TIME } from './ChordScroller';
-import Keyboard from '../learn/Keyboard';
+import Keyboard from '../common/Keyboard';
 import SongController from './SongController';
 
 import createTimer from '../../utilities/createTimer';

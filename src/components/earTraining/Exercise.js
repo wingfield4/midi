@@ -7,7 +7,7 @@ import MidiManager from '../managers/MidiManagers/MidiManager';
 import MidiSoundManager from '../managers/MidiManagers/MidiSoundManager';
 
 import ExerciseStatus from './ExerciseStatus';
-import Keyboard from '../learn/Keyboard';
+import Keyboard from '../common/Keyboard';
 
 import queueSequence from '../../utilities/queueSequence';
 

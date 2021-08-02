@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import ChordPrompt from './ChordPrompt';
-import ChordTitle from '../../learn/ChordTitle';
+import ChordTitle from '../../common/ChordTitle';
 
 import createTimer from '../../../utilities/createTimer';
 import easeInQuad from '../../../utilities/animation/easeInQuad';

@@ -2,6 +2,7 @@ import { createStore, combineReducers } from 'redux';
 
 import colors from './colors';
 import instruments from './instruments';
+import instrumentLibrary from './instrumentLibrary';
 
 const DEFAULT_COLOR_MODE = localStorage.getItem('colorMode') || 'dark';
 
@@ -60,6 +61,7 @@ const setInstrument = (state, action) => {
 
   switch (action.type) {
     case 'setInstrument':
+      instrumentLibrary.isInitialized = false;
       return action.instrument;
     default:
       return state;

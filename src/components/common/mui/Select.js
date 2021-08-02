@@ -12,6 +12,7 @@ const Select = ({
   label,
   style,
   FormControlProps,
+  fullWidth,
   ...props 
 }) => {
   
@@ -22,6 +23,7 @@ const Select = ({
       }}
       {...FormControlProps}
       disabled={disabled}
+      fullWidth={fullWidth}
     >
       <InputLabel
         disabled={disabled}
@@ -31,6 +33,7 @@ const Select = ({
       <MuiSelect
         input={<Input />}
         disabled={disabled}
+        fullWidth={fullWidth}
         {...props}
       >
         {children}

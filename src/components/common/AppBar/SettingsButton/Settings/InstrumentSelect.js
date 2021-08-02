@@ -3,23 +3,24 @@ import { connect } from 'react-redux';
 
 import MenuItem from '@material-ui/core/MenuItem';
 
-import Select from './mui/Select';
+import Select from '../../../mui/Select';
 
-import instruments from '../../utilities/instruments';
+import instruments from '../../../../../utilities/instruments';
 
-const InstrumentSelect = (props) => {
+const InstrumentSelect = ({ dispatch, instrument, ...props }) => {
   return (
     <Select
       label="Instrument"
-      value={props.instrument}
+      value={instrument}
       onChange={(e) => {
-        props.dispatch({
+        dispatch({
           type: 'setInstrument',
           instrument: e.target.value
         })
       }}
       id="instrument-select"
       style={{ marginLeft: 8 }}
+      {...props}
     >
       <MenuItem value={instruments.GRAND_PIANO}>Grand Piano</MenuItem>
       <MenuItem value={instruments.CELTIC_HARP}>Celtic Harp</MenuItem>

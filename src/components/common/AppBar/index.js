@@ -6,7 +6,7 @@ import HelpCircleOutlineIcon from 'mdi-material-ui/HelpCircleOutline';
 import InformationOutlineIcon from 'mdi-material-ui/InformationOutline';
 
 import Button from '../mui/Button';
-import Drawer from './Drawer';
+import NavigationDrawer from './NavigationDrawer';
 import Link from '../Link';
 import SettingsButton from './SettingsButton';
 
@@ -15,7 +15,7 @@ import icon from '../../../assets/icon_label_large_square.png';
 const AppBar = (props) => {
   return (
     <Container colors={props.colors}>
-      <Drawer />
+      <NavigationDrawer />
       <Link to="/">
         <img
           height="36"

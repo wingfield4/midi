@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ChordTitle from '../learn/ChordTitle';
-import Keyboard from '../learn/Keyboard';
+import ChordTitle from '../common/ChordTitle';
+import Keyboard from '../common/Keyboard';
 
 const PlayComponent = () => {
   return (
@@ -18,6 +18,6 @@ const PlayComponent = () => {
 export default PlayComponent;
 
 const ChordTitleContainer = styled.div`
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 `;
