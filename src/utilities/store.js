@@ -48,7 +48,6 @@ const setLastNote = (state, action) => {
 
   switch (action.type) {
     case 'addNote':
-      console.log('addingNote', action.note);
       return action.note;
     default:
       return state;

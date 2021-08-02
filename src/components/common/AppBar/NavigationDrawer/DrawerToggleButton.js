@@ -6,7 +6,7 @@ import MenuIcon from 'mdi-material-ui/Menu';
 
 import IconButton from '../../mui/IconButton';
 
-const DrawerToggleButton = ({ colors, ...props }) => {
+const DrawerToggleButton = ({ colors, dispatch, ...props }) => {
   return (
     <HeaderIconButton colors={colors} {...props}>
       <MenuIcon style={{ color: colors.headerText }} />

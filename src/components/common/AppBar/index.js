@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import HelpCircleOutlineIcon from 'mdi-material-ui/HelpCircleOutline';
 import InformationOutlineIcon from 'mdi-material-ui/InformationOutline';
 
+import Hidden from '@material-ui/core/Hidden';
+
 import Button from '../mui/Button';
 import NavigationDrawer from './NavigationDrawer';
 import Link from '../Link';
@@ -25,18 +27,20 @@ const AppBar = (props) => {
         />
       </Link>
       <div style={{ flex: 1 }} />
-      <Link to="/howTo">
-        <HeaderButton colors={props.colors}>
-          <HelpCircleOutlineIcon style={{ marginRight: 4 }} />
-          How To Use
-        </HeaderButton>
-      </Link>
-      <Link to="/about">
-        <HeaderButton colors={props.colors}>
-          <InformationOutlineIcon style={{ marginRight: 4 }} />
-          About Us
-        </HeaderButton>
-      </Link>
+      <Hidden smDown>
+        <Link to="/howTo">
+          <HeaderButton colors={props.colors}>
+            <HelpCircleOutlineIcon style={{ marginRight: 4 }} />
+            How To Use
+          </HeaderButton>
+        </Link>
+        <Link to="/about">
+          <HeaderButton colors={props.colors}>
+            <InformationOutlineIcon style={{ marginRight: 4 }} />
+            About Us
+          </HeaderButton>
+        </Link>
+      </Hidden>
       <SettingsButton />
     </Container>
   )
